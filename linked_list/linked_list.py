@@ -19,11 +19,22 @@ class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
 
-    def insert(self, data):
+    def insert_at_first(self, data):
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
-
+            
+    def insert_at_last(self, data):
+        temp = Node(data)
+        ptr = self.head
+        if ptr==None:
+            self.head = temp
+            return
+        else:
+            while ptr.getNext()!=None:
+                ptr = ptr.getNext()
+            ptr.setNext(temp)
+            
     def size(self):
         current = self.head
         count = 0
